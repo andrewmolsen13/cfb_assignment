@@ -1,15 +1,17 @@
 import pandas as pd
-
+#creates a list to store the different teams in the specified win total
 def team_counter(teams):
     team_list = []
     for team in teams:
         team_list.append(team)
     return team_list
 
+#puts the csv file in a readable way for pandas
 football_stats = pd.read_csv("cfb.csv")
+
+#Validation loop for the menu to make sure we get a valid year
 menu_run = True
 seasons = [2013,2014,2015,2016,2017,2018,2019,2020]
-
 while menu_run:
     try:
         menu = int(input("What season would you like to analyze? Pick any season from 2013-2020 "))
@@ -19,12 +21,15 @@ while menu_run:
     except ValueError:
         print("Please enter a valid number")
 
+#Finds the instances of the year in the file
 year = football_stats.loc[football_stats["Season"] == menu]
+#pull the different win totals for each team in the selected season and sends it to the team counter func
 ten_wins = team_counter(year.query("Win >= 10")["Team"])
 eight_nine_wins = team_counter(year.query("Win >= 8 and Win < 10")["Team"])
 six_seven_wins = team_counter(year.query("Win >= 6 and Win < 8")["Team"])
 five_and_less = team_counter(year.query("Win < 6")["Team"])
 
+#prints the teams from each list
 print("\nTeams with 10+ wins:\n")
 for team in ten_wins:
     print(team)
