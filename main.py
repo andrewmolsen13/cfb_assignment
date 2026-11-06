@@ -1,5 +1,11 @@
 import pandas as pd
-from functions import *
+
+def team_counter(teams):
+    team_list = []
+    for team in teams:
+        team_list.append(team)
+    return team_list
+
 football_stats = pd.read_csv("cfb.csv")
 menu_run = True
 seasons = [2013,2014,2015,2016,2017,2018,2019,2020]
