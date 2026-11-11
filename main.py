@@ -12,12 +12,12 @@ football_stats = pd.read_csv("cfb.csv")
 
 #Validation loop for the menu to make sure we get a valid year
 menu_run = True
-seasons = [2013,2014,2015,2016,2017,2018,2019,2020]
+seasons = football_stats["Season"].unique().tolist()
 while menu_run:
     try:
-        menu = int(input("What season would you like to analyze? Pick any season from 2013-2020 "))
+        menu = int(input(f"What season would you like to analyze? Availible seasons: {", ".join(str(season) for season in seasons)} "))
         while menu not in seasons:
-            menu = int(input("Please input a year from 2013-2020 "))
+            menu = int(input("Season not found, please input another "))
         menu_run = False
     except ValueError:
         print("Please enter a valid number")
