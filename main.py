@@ -42,18 +42,3 @@ for team in teams["six_seven_wins"]:
 print("\nTeams with less than 6 wins:")
 for team in teams["five_and_less_wins"]:
     print(team)
-
-#prints the teams from each list
-# print("\nTeams with 10+ wins:\n")
-# for team in ten_wins:
-#     print(team)
-# print("\nTeams with 8-9 wins:\n")
-# for team in eight_nine_wins:
-#     print(team)
-# print("\nTeams with 6-7 wins:\n")
-# for team in six_seven_wins:
-#     print(team)
-# print("\nTeams with 5 and less wins:\n")
-# for team in five_and_less:
-#     print(team)
-
